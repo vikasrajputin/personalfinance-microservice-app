@@ -1,0 +1,79 @@
+<div class="modal fade" [id]="'addexpenseModel-'+expenseModel.id">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Expense</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+        <form class="expense" [formGroup]="expenseForm">
+
+          <div class="alert alert-success alert-dismissible" *ngIf="submitted">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> Expense saved successfully
+          </div>
+          <div class="alert alert-danger alert-dismissible" *ngIf="errorOccurred">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Error!</strong>
+          </div>
+
+          <div class="form-group mb-3 mt-3">
+            <label for="category">Category</label>
+            <select class="form-select" formControlName="category" [(ngModel)]="expenseModel.category" id="source"
+              name="source">
+              <option value="NEED">Need</option>
+              <option value="WANTS">Wants</option>
+              <option value="OTHERS">Other</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" formControlName="plannedExpenseAmount"
+              [(ngModel)]="expenseModel.plannedExpense " id="plannedExpenseAmount"
+              placeholder="Enter the planned expense" name="plannedExpenseAmount">
+            <label for="plannedIncomeAmount">Planned Expense Amount</label>
+          </div>
+
+          <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" formControlName="actualExpenseAmount"
+              [(ngModel)]="expenseModel.actualExpense" id="actualExpenseAmount" placeholder="Enter the actual expense"
+              name="actualExpenseAmount">
+            <label for="actualExpenseAmount">Actual Expense Amount</label>
+          </div>
+
+
+
+          <div class="form-floating mb-3 mt-3">
+            <input type="date" class="form-control" formControlName="expensedate"
+              [(ngModel)]="expenseModel.expenseDate " id="expenseDate" placeholder="Date" name="expenseDate">
+            <label for="expenseDate">Expense Date</label>
+          </div>
+
+          <div class="form-floating mb-3 mt-3">
+            <textarea class="form-control" formControlName="description" [(ngModel)]="expenseModel.description "
+              id="description" name="description" placeholder="Enter the description"></textarea>
+            <label for="description">Description</label>
+          </div>
+
+          <button type="submit" class="btn btn-success" (click)="updateExpense()" [disabled]="isLoading">
+
+            <div [hidden]="isLoading">
+              Update
+            </div>
+            <div [hidden]="!isLoading">
+              <span class="spinner-border spinner-border-sm"></span>
+              Update..
+            </div>
+
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

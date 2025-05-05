@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: configuration-server
+test:
+  name: Vikas
+  fname: Vikas
+  lname: Rajput

@@ -1,0 +1,10 @@
+app:
+  jwtSecret: Vm14U1MxWXlSblJVYmxKWFlXdEtWMVJYZEdGTlJtdDNXa1JTYVZGVU1Eaz0=
+  jwtExpirationMs: 3000000
+  jwtRefreshTokenExpiry: 5000000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekauser:eureka!@localhost:8761
+server:
+  port: 8555

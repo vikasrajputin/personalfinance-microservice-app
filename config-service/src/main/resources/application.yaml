@@ -1,0 +1,53 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: git
+  application:
+    name: configuration-server
+  cloud:
+    config:
+      server:
+#        native:
+#          search-locations: "file://D:/Educative/source code/config-repo"
+        git:
+          uri: "https://github.com/vikasrajputin/pf-app-config-repo"
+#          # ignoreLocalSshSettings: true
+#          # hostKey: aagahahaehryr
+#          # hostKeyAlgorithm: ssh-rsa
+#          # privateKey: |
+          username: vkhaas.rajput1993@gmail.com
+          password: Vkhaas@6035
+          default-label: main
+  security:
+    basic:
+      enabled: true
+    user:
+      name: clouduser
+      password: configserver!
+  jackson:
+    default-property-inclusion: NON_NULL
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
+
+#spring:
+#  application:
+#    name: discovery-service
+#server:
+#  port: 8761
+#
+#eureka:
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#  instance:
+#    prefer-ip-address: true

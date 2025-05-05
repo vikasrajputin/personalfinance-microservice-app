@@ -1,0 +1,11 @@
+#MySQL Database
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/personal_finance
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+server:
+   port: 8082

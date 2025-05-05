@@ -1,0 +1,19 @@
+app:
+  jwtSecret: Vm14U1MxWXlSblJVYmxKWFlXdEtWMVJYZEdGTlJtdDNXa1JTYVZGVU1Eaz0=
+  jwtExpirationMs: 300000 #5min
+  jwtRefreshTokenExpiry: 900000 #15min
+server:
+  port: 8555
+spring:
+  cloud:
+#    config:
+#      profile: git
+#      label: main
+#  config:
+#    import: optional:configserver:http://clouduser:configserver!@localhost:8888/authentication-service/git/main
+  application:
+    name: auth-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
